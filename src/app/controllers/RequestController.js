@@ -35,11 +35,65 @@ class RequestController {
     };
 
     async update(req, res) {
-        
+        const { request_id } = req.params;
+
+        const request = await Request.findOne({
+            where: {
+                request_id,
+            },
+        });
+
+        if(!checkExistence(request)) {
+            return res.status(400).json({ message: 'Pedido não encontrado' });
+        }
+
+        const {
+            name,
+            amount,
+            beverage,
+            address,
+            zip_code,
+            city,
+            delivery,
+            client,
+            payment,
+            request_id
+        } = req.body;
+
+        const success = await request.update({
+            name,
+            amount,
+            beverage,
+            address,
+            zip_code,
+            city,
+            delivery,
+            client,
+            payment,
+            request_id
+        });
+
+        if(!success) {
+            return res.status(400).json({ message: 'Não foi possível atualizar o pedido' });
+        }
+
+        return res.status(200).json(request);
     };
 
     async delete(req, res) {
+        const { request_id } = req.params;
 
+        const success = await Request.destroy({
+            where: {
+                request_id
+            },
+        });
+
+        if(!success) {
+            return res.status(400).json({ message: 'Não foi possível excluir o pedido' });
+        }
+
+        return res.status(200).json({ message: 'Pedido removido' });
     };
 }
 

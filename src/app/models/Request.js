@@ -12,6 +12,7 @@ class Request extends Model {
                 city: Sequelize.STRING,
                 delivery: Sequelize.BOOLEAN,
                 client: Sequelize.STRING,
+                payment: Sequelize.STRING,
                 request_id: Sequelize.STRING,
             },
             {

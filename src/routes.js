@@ -18,4 +18,6 @@ routes.post('/request', RequestController.store);
 
 routes.get('/request/:request_id', RequestController.show);
 
+routes.put('/request/:request_id', RequestController.update);
+
 export default routes;
