@@ -1,27 +1,27 @@
-import Sequelize, { Model } from 'sequelize';
-
-class Request extends Model {
-    static init(sequelize) {
-        super.init(
-            {
-                name: Sequelize.STRING,
-                amount: Sequelize.INTEGER,
-                beverage: Sequelize.STRING,
-                address: Sequelize.STRING,
-                zip_code: Sequelize.STRING,
-                city: Sequelize.STRING,
-                delivery: Sequelize.BOOLEAN,
-                client: Sequelize.STRING,
-                payment: Sequelize.STRING,
-                request_id: Sequelize.STRING,
-            },
-            {
-                sequelize,
-            }
-        );
-
-        return this;
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Request extends Model {
+    static associate(models) {
+      // define association here
     }
-}
-
-export default Request;
+  };
+  Request.init({
+    name: DataTypes.STRING,
+    amount: DataTypes.INTEGER,
+    beverage: DataTypes.STRING,
+    address: DataTypes.STRING,
+    zip_code: DataTypes.STRING,
+    city: DataTypes.STRING,
+    delivery: DataTypes.BOOLEAN,
+    client: DataTypes.STRING,
+    payment: DataTypes.STRING,
+    request_id: DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'Request',
+  });
+  return Request;
+};
