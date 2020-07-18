@@ -1,4 +1,5 @@
 import Session from '../models/Session';
+import checkExistence from '../../utils/checkExistence';
 
 class SessionController {
   async store(req, res) {
@@ -16,7 +17,7 @@ class SessionController {
       },
     });
 
-    if (!session) {
+    if (!checkExistence(session)) {
       return res.status(404).json({ message: 'Session does not exists' });
     }
 

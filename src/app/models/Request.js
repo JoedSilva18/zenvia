@@ -11,6 +11,7 @@ class Request extends Model {
                 zip_code: Sequelize.STRING,
                 city: Sequelize.STRING,
                 delivery: Sequelize.BOOLEAN,
+                client: Sequelize.STRING,
                 request_id: Sequelize.STRING,
             },
             {
