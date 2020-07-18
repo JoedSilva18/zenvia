@@ -12,12 +12,21 @@ routes.put(
   SessionController.update
 );
 
+// Rotas para tratamento de Pedidos
+
+// Lista todos os pedidos
 routes.get('/request', RequestController.index);
 
+// Armazena um pedido
 routes.post('/request', RequestController.store);
 
+// Lista um pedido por completo
 routes.get('/request/:request_id', RequestController.show);
 
+// Atualiza um pedido
 routes.put('/request/:request_id', RequestController.update);
+
+// Remove um pedido
+routes.delete('/request/:request_id', RequestController.delete);
 
 export default routes;
