@@ -35,7 +35,7 @@ class SessionController {
       },
     });
 
-    if (!session) {
+    if (!checkExistence(session)) {
       return res.status(404).json({ message: 'Session does not exists' });
     }
 
