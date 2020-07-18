@@ -21,12 +21,12 @@ routes.get('/request', RequestController.index);
 routes.post('/request', RequestController.store);
 
 // Lista um pedido por completo
-routes.get('/request/:request_id', RequestController.show);
+routes.get('/request/:id', RequestController.show);
 
 // Atualiza um pedido
-routes.put('/request/:request_id', RequestController.update);
+routes.put('/request/:id', RequestController.update);
 
 // Remove um pedido
-routes.delete('/request/:request_id', RequestController.delete);
+routes.delete('/request/:id', RequestController.delete);
 
 export default routes;
