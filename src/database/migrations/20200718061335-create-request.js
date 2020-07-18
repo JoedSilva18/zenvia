@@ -1,65 +1,59 @@
-'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Requests', {
+    await queryInterface.createTable('requests', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      name: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      amount: {
         type: Sequelize.INTEGER,
-        allowNull: false
       },
-      beverage: {
+      description: {
         type: Sequelize.STRING,
-        allowNull: true
-      },
-      address: {
-        type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       zip_code: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
-      city: {
+      address: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true,
       },
       delivery: {
         type: Sequelize.BOOLEAN,
-        allowNull: false
+        allowNull: false,
       },
-      client: {
+      client_name: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+      },
+      telephone_number: {
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       payment: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
-      request_id: {
+      total_value: {
+        type: Sequelize.DOUBLE,
+        allowNull: false,
+      },
+      request_status: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Requests');
-  }
+  down: async queryInterface => {
+    await queryInterface.dropTable('requests');
+  },
 };

@@ -2,99 +2,101 @@ import Request from '../models/Request';
 import checkExistence from '../../utils/checkExistence';
 
 class RequestController {
-    async store(req, res) {
-        const request = await Request.create(req.body);
+  async store(req, res) {
+    const request = await Request.create(req.body);
 
-        return res.status(200).json(request);
-    };
+    return res.status(200).json(request);
+  }
 
-    async show(req, res) {
-        const { request_id } = req.params;
+  async show(req, res) {
+    const { id } = req.params;
 
-        const request = await Request.findOne({
-            where: {
-                request_id,
-            },
-        });
+    const request = await Request.findOne({
+      where: {
+        id,
+      },
+    });
 
-        if(!checkExistence(request)) {
-            return res.status(400).json({ message: 'Pedido não encontrado' });
-        } 
+    if (!checkExistence(request)) {
+      return res.status(400).json({ message: 'Pedido não encontrado' });
+    }
 
-        return res.status(200).json(request);
-    };
+    return res.status(200).json(request);
+  }
 
-    async index(req, res) {
-        const requests = await Request.findAll();
+  async index(req, res) {
+    const requests = await Request.findAll();
 
-        if(!checkExistence(requests)) {
-            return res.status(400).json({ message: 'Não existem pedidos' });
-        }
+    if (!checkExistence(requests)) {
+      return res.status(400).json({ message: 'Não existem pedidos' });
+    }
 
-        return res.status(200).json(requests);
-    };
+    return res.status(200).json(requests);
+  }
 
-    async update(req, res) {
-        const { request_id } = req.params;
+  async update(req, res) {
+    const { id } = req.params;
 
-        const request = await Request.findOne({
-            where: {
-                request_id,
-            },
-        });
+    const request = await Request.findOne({
+      where: {
+        id,
+      },
+    });
 
-        if(!checkExistence(request)) {
-            return res.status(400).json({ message: 'Pedido não encontrado' });
-        }
+    if (!checkExistence(request)) {
+      return res.status(400).json({ message: 'Pedido não encontrado' });
+    }
 
-        const {
-            name,
-            amount,
-            beverage,
-            address,
-            zip_code,
-            city,
-            delivery,
-            client,
-            payment,
-            request_id
-        } = req.body;
+    const {
+      description,
+      zip_code,
+      address,
+      delivery,
+      client_name,
+      telephone_number,
+      payment,
+      total_value,
+      request_status,
+    } = req.body;
 
-        const success = await request.update({
-            name,
-            amount,
-            beverage,
-            address,
-            zip_code,
-            city,
-            delivery,
-            client,
-            payment,
-            request_id
-        });
+    const success = await request.update({
+      description,
+      zip_code,
+      address,
+      delivery,
+      client_name,
+      telephone_number,
+      payment,
+      total_value,
+      request_status,
+    });
 
-        if(!success) {
-            return res.status(400).json({ message: 'Não foi possível atualizar o pedido' });
-        }
+    if (!success) {
+      return res
+        .status(400)
+        .json({ message: 'Não foi possível atualizar o pedido' });
+    }
 
-        return res.status(200).json(request);
-    };
+    return res.status(200).json(request);
+  }
 
-    async delete(req, res) {
-        const { request_id } = req.params;
+  async delete(req, res) {
+    const { id } = req.params;
 
-        const success = await Request.destroy({
-            where: {
-                request_id
-            },
-        });
+    const success = await Request.destroy({
+      where: {
+        id,
+      },
+    });
 
-        if(!success) {
-            return res.status(400).json({ message: 'Não foi possível excluir o pedido' });
-        }
+    if (!success) {
+      return res
+        .status(400)
+        .json({ message: 'Não foi possível excluir o pedido' });
+    }
 
-        return res.status(200).json({ message: 'Pedido removido' });
-    };
+    return res.status(200).json({ message: 'Pedido removido' });
+  }
 }
 
 export default new RequestController();

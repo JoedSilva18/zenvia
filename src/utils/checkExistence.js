@@ -1,9 +1,9 @@
 function checkExistence(element) {
-    if(!element) {
-        return false;
-    }
+  if (!element) {
+    return false;
+  }
 
-    return true;
+  return true;
 }
 
 export default checkExistence;
