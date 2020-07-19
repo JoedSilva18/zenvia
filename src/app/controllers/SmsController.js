@@ -1,11 +1,11 @@
-import zenvia from '@zenvia/sdk';
+const zenvia = require('@zenvia/sdk');
 import Request from '../models/Request';
 
 class SmsController {
     async send(req, res) {
         const { id } = req.params;
 
-        const client = new zenvia.Client(process.env.ZENVIA_KEY);
+        const client = new zenvia.Client('sosHOWby2EokGLqMZnztDh2JCbSsVcMx0I50');
 
         const client_request = await Request.findOne({
             where: {
