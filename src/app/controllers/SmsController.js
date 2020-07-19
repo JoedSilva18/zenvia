@@ -23,13 +23,7 @@ class SmsController {
 
         const content = new zenvia.TextContent(message);
 
-        await sms.sendMessage('upbeat-ink', `${to}`, content)
-        .then(res => {
-            console.log('Response:', res);
-        })
-        .catch(error => {
-            console.log('Error: ', error);
-        });
+        await sms.sendMessage('upbeat-ink', `${to}`, content);
 
         const subscriptionMessage = new zenvia.MessageSubscription({
             url: process.env.ZENVIA_URL
