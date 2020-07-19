@@ -37,11 +37,13 @@ module.exports = {
       },
       total_value: {
         type: Sequelize.DOUBLE,
-        allowNull: false,
+        allowNull: true,
+        defaultValue: 0.0,
       },
       request_status: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
+        defaultValue: 'Em andamento',
       },
       created_at: {
         allowNull: false,
