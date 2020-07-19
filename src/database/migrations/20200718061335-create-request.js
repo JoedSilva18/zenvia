@@ -13,7 +13,7 @@ module.exports = {
       },
       zip_code: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       address: {
         type: Sequelize.STRING,
