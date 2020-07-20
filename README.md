@@ -10,7 +10,7 @@
 Com a crise gerada pelo novo coronavirus, diversas empresas e microempreendedores se viram na necessidade de acelerar o processo de transformação digital. Entretatdo, muitos profissionais autonomos não consgeuiram se adaptar gerando assim, dificuldades financeiras.
  
  ### A Ideia
-Nosso projeto visa auxiliar o profissional autonomo a divulgar e gerenciar seus serviços através do whatsapp. Com a crise, muito deles começaram a oferecer seus serviços através dessas rede social, no entanto, eles acabam tendo problemas para conseguir gerenciar as mensagens e obter as informaçes que realmente são relevantes. Com nosso sistema, ele consegue automatizar esse processo através de um bot e obter as informaçes de forma estruturada através de um dashboard.
+Nosso projeto visa auxiliar o profissional autônomo a divulgar e gerenciar seus serviços através do Whatsapp. Com a crise, muito deles começaram a oferecer seus serviços através dessas rede social, no entanto, eles acabam tendo problemas para conseguir gerenciar as mensagens e obter as informações que realmente são relevantes. Com nosso sistema, ele consegue automatizar esse processo através de um Bot e obter as informações de forma estruturada através de um Dashboard.
 
 ### Por Trás dos Panos
 O sistema se baseia no uso do Watson Assistant da IBM, onde  possível construir bots que possuem NLP(Processamento de linguagem natural), com isso o cliente pode falar de uma maneira mais humana que o sistema consegue extrair as informações relevantes. Além disso, utilizamos o serviço de Whatsapp da Zenvia para integrar o Watson ao Whatsapp. O serviço de SMS também foi utilizado para notificar os clientes sobre seus pedidos.
