@@ -2,7 +2,7 @@
   <img src="https://i.imgur.com/wmBKb0I.png" height="260" width="320" />
 </p>
  
- # IMAGINE
+ # Zap Encomendas | Backend
  
  **Este é o repositório do backend do sistema Zap Encomendas proposta como solução para o desafio Hack a Rocket organizado pela Shawee.**
  
